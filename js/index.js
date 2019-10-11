@@ -4,57 +4,64 @@
         // Par defaut le formulaire de connection est afficher, le formulaire d'inscription quand a lui est en 'display: none';
         // FAITE EN SORTE QUE AU CLICK SUR LES BUTTONS POSSEDANT LA CLASS 'square-button-empty'
             // DE MASQUER LE LOGIN FORM POUR AFFICHER LE REGISTER FORM, ET INVERSEMENT <->
-var buttons = document.getElementsByClassName('square-button-empty');
-var one = document.getElementById("connexion-form");
-var two = document.getElementById("register-form");
-for (var i = 0; i < buttons.length; i++) {
-    buttons[i].onclick = function(e){
+var toogle_sign_up_register = document.getElementsByClassName('square-button-empty');
+let form_connexion = document.getElementById("connexion-form");
+let form_inscription = document.getElementById("register-form");
+for (var i = 0; i < toogle_sign_up_register.length; i++) {
+    toogle_sign_up_register[i].onclick = function(e){
         if(e.target.getAttribute("data-form")==0){
-           one.style.display = "none";
-           two.style.display = "flex";
+           form_connexion.style.display = "none";
+           form_inscription.style.display = "flex";
 
         } else if(e.target.getAttribute("data-form")==1){
-           one.style.display = "flex";
-           two.style.display = "none";
+           form_connexion.style.display = "flex";
+           form_inscription.style.display = "none";
         }
 
     }
-};
+}
     // --------------------- STEP 2 ----------------------
         // maintenant que l'on peut afficher nos 2 formulaires l'intéret serait maintenant qu'ils fonctionnent ! pour cela :
         // FAITE EN SORTE QUE AU CLICK SUR LES BUTTONS POSSEDANT LA CLASS 'square-button' DE :
             //  1. récuperer la valeur de tout les champs de formulaires
             //  2. vérifier que le 'username' fait au moins 5 caracteres alphanumérique
             //  3. vérifier que le password fait au moins 8 caracteres et contient a minima une majuscule/minuscule ainsi qu'un entier (integer)
-var buttons_deux = document.getElementsByClassName("square-button");
-var three = document.getElementsByClassName("form-control");
-function isolement(buttons_deux, three){
-for (var i = 0; i < buttons_deux.length; i++) {
-    buttons_deux[i].onclick = function(f){
-for (var i = 0; i <three.length; i++) {
-    var four = three[i].datatype("username");
-    var five = three[i].datatype("password");
-    var reg1 = new RegExp("[a-z0,9]{5}", "gi");
-    var reg2 = new RegExp("[a-zA-Z0,9] {1,1,1}");
-    if (reg1.test(four)==true && reg2.test(five)==true){
-          if(true){
-                return isolement;
-          } if(true && false){
-                 alert("password contient minimum 8 caractères, 1 majuscule, 1 minuscule et 1 chiffre")
-          } if (false && true) {
-                 alert("username contient minimum 5 caractères")
-          } else {
-                 alert("veuillez entrée une saisie")
-          }
-    }
-}   
-        }
+var submit_form_connexion = document.getElementsByClassName('square-button')[0];
+var submit_form_register = document.getElementsByClassName('square-button')[1];
+submit_form_connexion.onclick = function(event) {
+	let form = document.getElementById('connexion-form');
+	let email = form[0].value;
+	let password = form[1].value;
+
 }
-};
+submit_form_register.onclick = function(event) {
+	let form = document.getElementById('register-form');
+	let username = form[0].value;
+	let email = form[1].value;
+	let password = form[2].value;
+	let password_confirm = form[3].value;
+	let error = true;
+
+	let username_status = checkUsername(username);
+	if (username_status != true) {
+		showAlert('L\'username doit comporter au moins 5 caracteres')
+	    error = true;
+}
+	let password_status = checkPassword(password);
+	if (password_status != true){
+		showAlert('Votre mot de passe doit comportrt au moins (1 minuscule, 1 majuscule, 1 chiffre)')
+        error = true;
+}
+	if (password !== password_confirm) {
+		showAlert('La confirmation du passe à echouer')
+        error = true;
 
 
+}   if (error == false) {
 
+}
 
+}
 
 
 

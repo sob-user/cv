@@ -16,3 +16,31 @@ function readFile(file, done) {
     }
     rawFile.send(null);
 }
+
+function showAlert(message) {
+    alert(message);
+}
+
+function checkUsername(username) {
+    if (username.length < 5)
+        return false;
+    else
+        return true;
+}
+
+function checkPassword(password) {
+    var passwordRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
+    if (passwordRegex.test(password))
+        return true;
+    else
+        return false;
+}
+
+class User {
+    constructor(username, email, password) {
+        var user = new User(username.value, email.value, password.value);
+        this.username = "username";
+        this.email = "email";
+        this.password = "password";
+    }
+}
