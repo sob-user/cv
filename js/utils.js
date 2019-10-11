@@ -38,9 +38,10 @@ function checkPassword(password) {
 
 class User {
     constructor(username, email, password) {
-        var user = new User(username.value, email.value, password.value);
-        this.username = "username";
-        this.email = "email";
-        this.password = "password";
+        var user = new User(username, email, password);
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        
     }
 }
