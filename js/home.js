@@ -22,6 +22,22 @@ window.onload = function() {
 
             // 1.2 DEFINIR DES GETTER/SETTER POUR CHAQUE PROPRIETES DE LA CLASS Article
                 // exemple : this.SetTitle = function(newTitle) { this.title = newTitle; } <----- ceci est un SETTER
+class Article {
+    constructor (title, author, publishedDate, img, content, resumes) {
+        this.title = title;
+        this.author = author;
+        this.publishedDate = publishedDate;
+        this.img = img;
+        this.content = content;
+        this.resumes = resumes;
+    }
+    this.SetTitle = function(newTitle) {this.title = newTitle;}
+    this.SetAuthor = function(newAuthor) {this.author = author;}
+    this.SetPublishedDate = function(newPublishedDate) {this.publishedDate = publishedDate;}
+    this.SetImg = function(newImg) {this.img = img;}
+    this.SetContent = function(newContent) {this.content = content;}
+    this.SetResumes = function(newResumes) { this.resumes = resumes;}
+};
 
 
 

@@ -33,6 +33,12 @@ submit_form_connexion.onclick = function(event) {
 	let email = form[0].value;
 	let password = form[1].value;
 
+    var user = localStorage.getItem('user');
+    user = JSON.parse('user');
+
+    if (user.email == email && user.password == password)
+        window.location = "home.html";
+
 }
 submit_form_register.onclick = function(event) {
 	let form = document.getElementById('register-form');
@@ -40,7 +46,7 @@ submit_form_register.onclick = function(event) {
 	let email = form[1].value;
 	let password = form[2].value;
 	let password_confirm = form[3].value;
-	let error = true;
+	let error = false;
 
 	let username_status = checkUsername(username);
 	if (username_status != true) {
@@ -49,7 +55,7 @@ submit_form_register.onclick = function(event) {
 }
 	let password_status = checkPassword(password);
 	if (password_status != true){
-		showAlert('Votre mot de passe doit comportrt au moins (1 minuscule, 1 majuscule, 1 chiffre)')
+		showAlert('Votre mot de passe doit comporter au moins (1 minuscule, 1 majuscule, 1 chiffre')
         error = true;
 }
 	if (password !== password_confirm) {
@@ -58,7 +64,8 @@ submit_form_register.onclick = function(event) {
 
 
 }   if (error == false) {
-
+         var user = new User(username, email, password);
+         localStorage.setItem('user', JSON.stringify(user));
 }
 
 }
