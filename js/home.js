@@ -85,6 +85,10 @@ articleTags.innerText = article.tags;
 articleBloc.appendChild(articleTags);
 
 section.appendChild(articleBloc);
+articleImg.addEventListener('click', function() {
+
+this.articleBloc.setAttribute('href' , 'article.hml');
+});
 
 }
 
