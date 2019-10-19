@@ -46,14 +46,14 @@ class Article {
 
 };
 const section = document.getElementsByTagName('section')[0];
-
+section.style.display = 'block';
 
 for (var i = 0; i < articles.length; i++) {
 let article = new Article(articles[i].id, articles[i].title, articles[i].author, articles[i].publishedDate, articles[i].img, articles[i].content, articles[i].tags); 
 var articleBloc = document.createElement('article');
 articleBloc.setAttribute('data-id', article.id);
 
-articleBloc.style.display = 'flex';
+
 
 
 var articleTitle = document.createElement('h2');
@@ -69,7 +69,7 @@ articlePublishedDate.innerText = article.publishedDate;
 articleBloc.appendChild(articlePublishedDate);
 
 var articleImg = document.createElement('img');
-articleImg.setAttribute('src', article.img)
+articleImg.setAttribute('src', article.img);
 articleBloc.appendChild(articleImg);
 
 var articleContent = document.createElement('p');
@@ -85,6 +85,7 @@ articleTags.innerText = article.tags;
 articleBloc.appendChild(articleTags);
 
 section.appendChild(articleBloc);
+
 }
 
 
